@@ -1,0 +1,66 @@
+/* FOTO FOTO — studio.css */
+.studio{padding:5.5rem clamp(1rem,4vw,3rem) 3rem;max-width:1300px;margin:0 auto}
+.stepper{list-style:none;display:flex;gap:.6rem;margin:1rem 0 1.4rem;flex-wrap:wrap}
+.stepper button{background:none;border:1px solid var(--g7);color:var(--g5);padding:.55rem 1.1rem;border-radius:999px;cursor:pointer;transition:.25s}
+.stepper button:hover{border-color:#fff;color:#fff}
+.stepper button.on{background:#fff;color:#000;border-color:#fff}
+.panel{background:var(--g9);border:1px solid var(--g8);border-radius:var(--r);padding:clamp(1rem,3vw,2rem);animation:fade .5s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}}
+.panel h2{font-family:var(--display);font-size:1.7rem}
+.panel h3,.panel h4{font-family:var(--display);margin:1rem 0 .3rem}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
+.actions.tight{margin-top:.7rem}
+.inl{display:inline-flex;align-items:center;gap:.6rem;font-size:.9rem;margin-top:.8rem}
+select,input[type=text]{background:var(--g8);border:1px solid var(--g7);border-radius:10px;padding:.55rem .8rem;color:#fff;width:100%}
+input[type=color]{width:46px;height:34px;border:0;background:none;cursor:pointer}
+input[type=range]{width:100%;accent-color:#fff}
+.sl{display:grid;gap:.1rem;font-size:.85rem;color:var(--g3);margin-top:.6rem}
+
+/* langkah 1 */
+.frame-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;margin:1.2rem 0}
+.fp{background:var(--g8);border:2px solid transparent;border-radius:14px;padding:.8rem;cursor:pointer;display:grid;gap:.6rem;justify-items:center;font-size:.85rem;transition:.25s}
+.fp:hover{transform:translateY(-5px);border-color:var(--g5)}
+.fp.on{border-color:#fff;background:#2e2e2e}
+.fp .fc{width:100%}
+
+/* langkah 2 */
+.cap-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:1.6rem}
+.cam{position:relative;aspect-ratio:var(--ar,4 / 3);background:#000;border-radius:14px;overflow:hidden;width:100%}
+.cam video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.cam-off{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:1rem;color:var(--g5)}
+.live,.prog{position:absolute;top:12px;padding:.3rem .8rem;border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.08em;background:rgba(0,0,0,.65)}
+.live{left:12px}
+.live::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff3b30;margin-right:.5rem;animation:blink 1.2s infinite}
+.prog{right:12px}
+@keyframes blink{50%{opacity:.25}}
+.count{position:absolute;inset:0;display:grid;place-content:center;font-family:var(--display);font-weight:700;font-size:min(34vw,13rem);color:#fff;text-shadow:0 6px 40px rgba(0,0,0,.7);pointer-events:none}
+.count.pop{animation:pop .9s var(--ease)}
+@keyframes pop{from{transform:scale(1.6);opacity:0}30%{opacity:1}to{transform:scale(1)}}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.flash.go{animation:flash .45s ease-out}
+@keyframes flash{from{opacity:.95}to{opacity:0}}
+.ctl{display:grid;grid-template-columns:1fr 1fr auto;gap:.6rem;align-items:center;margin-top:1rem}
+.ctl select[hidden]{display:none}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.slot{background:var(--g8);border-radius:12px;padding:.5rem;display:grid;gap:.5rem;text-align:center;font-size:.8rem}
+.thumb{aspect-ratio:var(--ar,4 / 3);background:#111;border-radius:8px;overflow:hidden;display:grid;place-content:center;color:var(--g5);font-size:1.6rem;font-family:var(--display)}
+.thumb canvas{width:100%;height:100%;object-fit:cover;display:block}
+.slot .chip{width:100%}
+
+/* langkah 3 */
+.edit-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:1.6rem;align-items:start}
+.pv-wrap{position:sticky;top:5rem;display:grid;place-items:center;background:var(--g8);border-radius:14px;padding:1rem}
+#preview{width:auto;height:auto;max-width:100%;max-height:80vh;box-shadow:0 14px 40px rgba(0,0,0,.5);touch-action:pan-y}
+#preview.has-st{touch-action:none;cursor:grab}
+.grp{padding:.8rem 0;border-bottom:1px solid var(--g8)}
+.grp:last-child{border:0}
+.grp h4{margin:0 0 .4rem}
+.emoji{display:flex;flex-wrap:wrap;gap:.3rem}
+.emoji button{font-size:1.5rem;background:var(--g8);border:0;border-radius:10px;width:44px;height:44px;cursor:pointer;transition:transform .2s}
+.emoji button:hover{transform:scale(1.15)}
+
+@media (max-width:900px){
+  .cap-grid,.edit-grid{grid-template-columns:1fr}
+  .pv-wrap{position:static}
+  .ctl{grid-template-columns:1fr 1fr}
+}

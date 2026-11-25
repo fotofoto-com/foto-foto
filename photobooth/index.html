@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOTO FOTO — Photobooth Online</title>
+  <meta name="description"
+    content="Ciptakan momen berkesanmu di sini. Photobooth online gratis dengan frame, filter, dan retake.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a href="index.html" class="logo">FOTO FOTO</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="studio.html">Studio</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text reveal">
+        <p class="eyebrow">Photobooth Online</p>
+        <h1>FOTO<br>FOTO</h1>
+        <p class="tagline">“Ciptakan momen berkesanmu di sini.”</p>
+        <div class="hero-cta">
+          <a href="studio.html" class="btn btn-primary">MULAI FOTO</a>
+          <a href="#how" class="btn btn-ghost">Cara Pakai</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="fc tilt-l" data-frame="retro-pop"></div>
+        <div class="fc tilt-r" data-frame="cute-pink"></div>
+      </div>
+    </section>
+
+    <section class="section" id="frames">
+      <div class="section-head reveal">
+        <p class="eyebrow">Frame</p>
+        <h2>17 frame, satu gaya untukmu</h2>
+        <p class="muted">Klik frame untuk langsung memakainya di Studio.</p>
+      </div>
+      <div class="frame-grid">
+        <a class="fcard reveal" href="studio.html?frame=classic-black">
+          <div class="fc" data-frame="classic-black"></div><span>Classic Black</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=vintage-film">
+          <div class="fc" data-frame="vintage-film"></div><span>Vintage Film</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=scrapbook">
+          <div class="fc" data-frame="scrapbook"></div><span>Scrapbook Kraft</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=couple-red">
+          <div class="fc" data-frame="couple-red"></div><span>Couple Red</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=friend-yellow">
+          <div class="fc" data-frame="friend-yellow"></div><span>Best Friends</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=newspaper">
+          <div class="fc" data-frame="newspaper"></div><span>The Foto Times</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=polaroid-grid">
+          <div class="fc" data-frame="polaroid-grid"></div><span>Polaroid Set</span>
+        </a>
+        <a class="fcard reveal" href="studio.html?frame=retro-70s">
+          <div class="fc" data-frame="retro-70s"></div><span>Retro 70s</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section dark" id="how">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cara Menggunakan</p>
+        <h2>Empat langkah, selesai.</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span>01</span>
+          <h3>Pilih Frame</h3>
+          <p>Pilih desain frame favoritmu dan lihat preview-nya.</p>
+        </li>
+        <li class="reveal"><span>02</span>
+          <h3>Nyalakan Kamera</h3>
+          <p>Izinkan akses kamera, lalu pilih filter yang kamu suka.</p>
+        </li>
+        <li class="reveal"><span>03</span>
+          <h3>Berpose</h3>
+          <p>Countdown berjalan, foto diambil otomatis. Kurang bagus? Ulangi satu foto saja.</p>
+        </li>
+        <li class="reveal"><span>04</span>
+          <h3>Edit &amp; Simpan</h3>
+          <p>Atur filter, stiker, dan teks, lalu unduh atau simpan ke Gallery.</p>
+        </li>
+      </ol>
+      <div class="center reveal"><a href="studio.html" class="btn btn-primary">MULAI FOTO</a></div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="about reveal">
+        <p class="eyebrow">About</p>
+        <h2>FOTO FOTO</h2>
+        <p class="muted">Berikan pose terbaikmu disini.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="logo">FOTO FOTO</span>
+    <p>Ciptakan momen berkesanmu di sini.</p>
+    <small>© <span id="year"></span> FOTO FOTO</small>
+  </footer>
+
+  <script src="js/frames.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

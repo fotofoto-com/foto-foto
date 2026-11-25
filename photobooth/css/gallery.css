@@ -1,0 +1,15 @@
+/* FOTO FOTO — gallery.css */
+.gallery{padding:5.5rem clamp(1rem,4vw,3rem) 3rem;max-width:1300px;margin:0 auto}
+.g-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:1rem;margin:1rem 0}
+.g-head h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);line-height:1}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:1.5rem}
+.g-item{background:var(--g9);border:1px solid var(--g8);border-radius:var(--r);padding:.8rem;display:grid;gap:.7rem;transition:transform .3s var(--ease),border-color .3s}
+.g-item:hover{transform:translateY(-6px);border-color:var(--g5)}
+.g-item img{width:100%;aspect-ratio:3 / 4;object-fit:contain;background:#000;border-radius:10px;cursor:zoom-in}
+.g-item small{color:var(--g5);font-size:.78rem}
+.g-act{display:flex;gap:.4rem}
+.g-act .chip{flex:1;text-align:center}
+.g-act .del:hover{background:#fff;color:#000}
+.empty{text-align:center;padding:5rem 1rem;display:grid;gap:1.2rem;justify-items:center;color:var(--g5)}
+#confirm p{margin-bottom:.5rem}
+#confirm .actions{justify-content:center}

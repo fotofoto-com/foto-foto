@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio — FOTO FOTO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/studio.css">
+</head>
+<body class="dark">
+<header class="nav" id="nav">
+  <a href="index.html" class="logo">FOTO FOTO</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="studio.html" class="active">Studio</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="index.html#about">About</a>
+  </nav>
+</header>
+
+<main class="studio">
+  <ol class="stepper" id="stepper">
+    <li><button data-go="1" class="on">1 · Frame</button></li>
+    <li><button data-go="2">2 · Foto</button></li>
+    <li><button data-go="3">3 · Edit &amp; Simpan</button></li>
+  </ol>
+
+  <!-- LANGKAH 1: FRAME -->
+  <section id="s1" class="panel">
+    <h2>Pilih Frame</h2>
+    <p class="muted">Klik frame untuk memilih. Kamu bisa menggantinya kapan saja sebelum hasil akhir.</p>
+    <div class="chips" id="catChips"></div>
+    <div class="frame-pick" id="framePick"></div>
+    <label class="inl" id="customRow" hidden>Warna frame custom <input type="color" id="customColor" value="#222222"></label>
+    <div class="actions"><button class="btn btn-primary" id="toCam">Lanjut: Buka Kamera →</button></div>
+  </section>
+
+  <!-- LANGKAH 2: KAMERA -->
+  <section id="s2" class="panel" hidden>
+    <div class="cap-grid">
+      <div>
+        <div class="cam">
+          <video id="video" playsinline muted autoplay></video>
+          <div class="cam-off" id="camOff"><p>Kamera belum aktif</p><button class="btn btn-primary" id="startCam">Start Camera</button></div>
+          <span class="live" id="live" hidden>KAMERA AKTIF</span>
+          <span class="prog" id="prog" hidden></span>
+          <div class="count" id="count" hidden></div>
+          <div class="flash" id="flash"></div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" id="shoot">Ambil Foto</button>
+          <button class="btn btn-ghost" id="cancel" hidden>Batal</button>
+          <button class="btn btn-ghost" id="retakeAll">Retake All</button>
+        </div>
+        <div class="ctl">
+          <select id="camSel" hidden aria-label="Pilih kamera"></select>
+          <select id="secs" aria-label="Countdown">
+            <option value="3">Countdown 3 detik</option>
+            <option value="5">Countdown 5 detik</option>
+            <option value="7">Countdown 7 detik</option>
+          </select>
+          <label class="inl"><input type="checkbox" id="mirror" checked> Mirror</label>
+        </div>
+        <h4>Filter</h4>
+        <div class="chips scroll" id="filters2"></div>
+        <label class="sl">Intensitas filter <input type="range" data-k="intensity" min="0" max="100" value="100"></label>
+      </div>
+      <aside>
+        <h3>Hasil foto</h3>
+        <div class="slots" id="slots"></div>
+        <div class="actions">
+          <button class="btn btn-primary" id="toEdit" disabled>Lanjut ke Edit →</button>
+          <button class="btn btn-ghost" id="changeFrame">Ganti Frame</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- LANGKAH 3: EDIT -->
+  <section id="s3" class="panel" hidden>
+    <div class="edit-grid">
+      <div class="pv-wrap"><canvas id="preview"></canvas></div>
+      <div class="tools">
+        <div class="grp"><h4>Frame</h4>
+          <div class="chips scroll" id="frameChips"></div>
+          <label class="inl" id="customRow3" hidden>Warna <input type="color" id="customColor3" value="#222222"></label>
+        </div>
+        <div class="grp"><h4>Filter</h4>
+          <div class="chips scroll" id="filters3"></div>
+          <label class="sl">Intensitas <input type="range" data-k="intensity" min="0" max="100" value="100"></label>
+        </div>
+        <div class="grp"><h4>Penyesuaian</h4>
+          <label class="sl">Brightness <input type="range" data-k="bri" min="50" max="150" value="100"></label>
+          <label class="sl">Contrast <input type="range" data-k="con" min="50" max="150" value="100"></label>
+          <label class="sl">Saturation <input type="range" data-k="sat" min="0" max="200" value="100"></label>
+        </div>
+        <div class="grp"><h4>Posisi foto dalam frame</h4>
+          <div class="chips" id="photoChips"></div>
+          <label class="sl">Zoom <input type="range" data-p="zoom" min="1" max="2.5" step="0.01" value="1"></label>
+          <label class="sl">Geser kiri / kanan <input type="range" data-p="dx" min="-0.5" max="0.5" step="0.01" value="0"></label>
+          <label class="sl">Geser atas / bawah <input type="range" data-p="dy" min="-0.5" max="0.5" step="0.01" value="0"></label>
+        </div>
+        <div class="grp"><h4>Stiker <small class="muted">(tap untuk tambah, seret di preview)</small></h4>
+          <div class="emoji" id="emoji"></div>
+          <div class="actions tight">
+            <button class="chip" id="stSm">Kecil −</button>
+            <button class="chip" id="stBig">Besar +</button>
+            <button class="chip" id="stDel">Hapus</button>
+            <button class="chip" id="stClr">Hapus semua</button>
+          </div>
+        </div>
+        <div class="grp"><h4>Teks / Caption</h4>
+          <input type="text" id="caption" maxlength="28" placeholder="Tulis caption…">
+        </div>
+        <div class="grp"><h4>Simpan</h4>
+          <select id="fmt" aria-label="Format"><option value="png">PNG (kualitas terbaik)</option><option value="jpg">JPG (ukuran kecil)</option></select>
+          <div class="actions tight">
+            <button class="btn btn-primary" id="dl">Download</button>
+            <button class="btn btn-primary" id="saveBtn">Save Photo</button>
+            <button class="btn btn-ghost" id="fs">Preview Fullscreen</button>
+            <button class="btn btn-ghost" id="share" hidden>Bagikan</button>
+            <button class="btn btn-ghost" id="single">Unduh Foto Satuan</button>
+            <button class="btn btn-ghost" id="retake">Retake</button>
+            <a class="btn btn-ghost" href="index.html">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="viewer"><img id="viewImg" alt="Hasil foto"><form method="dialog"><button class="btn btn-ghost">Tutup</button></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/frames.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/studio.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

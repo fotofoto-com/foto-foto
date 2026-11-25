@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery — FOTO FOTO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body class="dark">
+<header class="nav" id="nav">
+  <a href="index.html" class="logo">FOTO FOTO</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="studio.html">Studio</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="index.html#about">About</a>
+  </nav>
+</header>
+
+<main class="gallery">
+  <div class="g-head">
+    <div><h1>Gallery</h1><p class="muted" id="count">0 foto</p></div>
+    <a class="btn btn-primary" href="studio.html">+ Foto Baru</a>
+  </div>
+  <p class="muted">Foto tersimpan di browser perangkat ini saja, tidak diunggah ke mana pun.</p>
+  <div class="g-grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>
+    <p>Belum ada foto tersimpan.</p>
+    <a class="btn btn-primary" href="studio.html">MULAI FOTO</a>
+  </div>
+</main>
+
+<dialog id="viewer"><img id="viewImg" alt="Foto"><form method="dialog"><button class="btn btn-ghost">Tutup</button></form></dialog>
+<dialog id="confirm">
+  <form method="dialog">
+    <p>Hapus foto ini? Tindakan ini tidak bisa dibatalkan.</p>
+    <div class="actions"><button class="btn btn-primary" value="yes">Hapus</button><button class="btn btn-ghost" value="no">Batal</button></div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
